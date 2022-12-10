@@ -1,119 +1,103 @@
 body {
-    margin-left: 30%;
-    margin-right: 30%;
-    min-width: 40%;
-    margin-top: 2%;
-  }
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgb(1, 1, 36);
+}
   
-  * {
-    box-sizing:border-box;
-    border-radius: 25px;
-  }
-    
-    /* Remove margins and padding from the list */
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    
-    /* Style the list items */
-    ul li {
-      cursor: pointer;
-      position: relative;
-      padding: 12px 8px 12px 40px;
-      background: #eee;
-      font-size: 18px;
-      transition: 0.2s;
-    
-      /* make the list items unselectable */
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    
-    ul li:hover {
-      background: pink;
-    }
-    
-    ul li.checked {
-      background: #888;
-      color: #fff;
-      text-decoration: line-through;
-    }
-    
-    /* Add a "checked" mark when clicked on */
-    ul li.checked::before {
-      content: '';
-      position: absolute;
-      border-color: #fff;
-      border-style: solid;
-      border-width: 0 2px 2px 0;
-      top: 10px;
-      left: 16px;
-      transform: rotate(45deg);
-      height: 15px;
-      width: 7px;
-    }
-    
-    /* Style the close button */
-    .close {
-      position: absolute;
-      right: 0;
-      top: 0;
-      padding: 12px 16px 12px 16px;
-    }
-    
-    .close:hover {
-      background-color: powderblue;
-      color: white;
-    }
-    
-    /* Style the header */
-    .header {
-      background-color: powderblue;
-      padding: 30px 40px;
-      color: black;
-      text-align: center;
-    }
+header {
+    background-color: rgb(36, 36, 65);
+    display: flex;
+    justify-content: flex-end;
+}
   
-    h2 {
-      padding: 20px;
-    }
+.search {
+    position: relative;
+    margin-top: 20px;
+    margin-right: 40px;
+    border-radius: 50px;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    background-color: rgb(62, 62, 97);
+    border: 2px solid rgb(26, 26, 26);
+    color: rgb(221, 208, 208);
+}
+
+h1 {
+    position: relative;
+    margin-right: 20%;
+    color: rgb(228, 213, 213);
+    font-weight: bold;
+}
+  
+main {
+    margin: auto;
+    float: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.movie {
+    position: relative;
+    margin: 12px;
+    width: 300px;
+    height: 550px;
+    background-color: rgb(46, 46, 95);
+    border-radius: 3px;
+    overflow: hidden;
     
-    /* Clear floats after the header */
-    .header:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-    
-    /* Style the input */
-    input {
-      margin: 0;
-      border: none;
-      border-radius: 0;
-      width: 75%;
-      padding: 10px;
-      float: left;
-      font-size: 16px;
-    }
-    
-    /* Style the "Add" button */
-    .addBtn {
-      padding: 10px;
-      width: 25%;
-      background: #d9d9d9;
-      color: #555;
-      float: left;
-      text-align: center;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-      border-radius: 0;
-    }
-    
-    .addBtn:hover {
-      background-color: #bbb;
-    }
+}
+
+.movie img {
+    width: 100%;
+}
+  
+.movie-title {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 0.5em 1em 1em;
+    justify-content: space-between;
+}
+
+.movie-title span {
+    position: relative;
+    margin-top: 10px;
+    padding: 0.5em;
+    background-color: rgb(51, 3, 83);
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.rating {
+    color: yellow;
+}
+
+.description {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: lightblue;
+    padding: 1em;
+    transform: translateY(101%);
+    transition: transform 0.2s ease-in;
+}
+
+.movie:hover .description {
+    transform: translateY(0);
+}
+
+#next {
+    position: relative;
+    margin-left: 47%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80px;
+    height: 40px;
+    background-color: lightblue;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
