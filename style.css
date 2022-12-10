@@ -9,7 +9,7 @@ header {
     justify-content: flex-end;
 }
   
-.search {
+#search {
     position: relative;
     margin-top: 20px;
     margin-right: 40px;
@@ -58,18 +58,18 @@ main {
     justify-content: space-between;
 }
 
-.movie-title span {
-    position: relative;
-    margin-top: 10px;
-    padding: 0.5em;
-    background-color: rgb(51, 3, 83);
-    border-radius: 5px;
-    font-size: large;
-    font-weight: bold;
+.description_title {
+    float: left;
 }
 
 .rating {
-    color: yellow;
+    color: purple;
+    float: right;
+}
+
+.overview {
+    display: inline-block;
+    margin-top: -10px;
 }
 
 .description {
@@ -87,9 +87,25 @@ main {
     transform: translateY(0);
 }
 
+#prev {
+    position: relative;
+    margin-left: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 40px;
+    display: inline-block;
+    background-color: lightblue;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
 #next {
     position: relative;
-    margin-left: 47%;
+    margin-left: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
     width: 80px;

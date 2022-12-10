@@ -1,47 +1,48 @@
 let page = 1;
-const api = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=781b7d3d2fb2a8c59c1badceca94e795&page=" + {page};
+const api = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=781b7d3d2fb2a8c59c1badceca94e795&page=";
 const img_api = "https://image.tmdb.org/t/p/w1280";
 const search_api = "https://api.themoviedb.org/3/search/movie?&api_key=781b7d3d2fb2a8c59c1badceca94e795&query=";
 
-const movieSection = document.getElementById("movieSection");
-const form = document.getElementById("form");
-const search = document.getElementById("search");
 
-
+// display the movies in the main section
 const movieList = (movies) => {
-  movieSection.innerHTML = "";
+    document.getElementById("movieSection").innerHTML = "";
 
-  movies.forEach((movie) => {
-    const { poster_path, title, vote_average, overview } = movie;
+    // display the info for every movie
+    movies.forEach((movie) => { 
+        const { poster_path, title, vote_average, overview } = movie;
 
-    const one_movie = document.createElement("div");
-    one_movie.classList.add("movie");
+        const one_movie = document.createElement("div");
+        one_movie.classList.add("movie");
 
-    one_movie.innerHTML = `
-      <img src="${img_api + poster_path}"/>
-      <div class="movie-title">
-        <h3>${title}</h3>
-        <span class="rating">${vote_average}</span>
-      </div>
-      <div class="description">
-        <h4>Description:</h4>${overview}
-      <div>`;
-    movieSection.appendChild(one_movie);
-  });
+        one_movie.innerHTML = `
+            <img src="${img_api + poster_path}"/>
+            <div class="movie-title">
+                <h2>${title}</h2>
+            </div>
+            <div class="description">
+                <h2>${title}</h2>
+                <h3 class="description_title">Description:</h3>    
+                <h3 class="rating">${vote_average}</h3>
+                <p class="overview">${overview}</p>
+            <div>`;
+        document.getElementById("movieSection").appendChild(one_movie);
+    });
 };
 
-const fetchMovies = async (url) => {
-    const resp = await fetch(url);
+const fetchMovies = async (api_url) => {
+    const resp = await fetch(api_url);
     const respData = await resp.json();
     movieList(respData.results);
 };
 
-fetchMovies(api);
+fetchMovies(api + page);
 
 
-form.addEventListener("submit", (event) => {
+// search for the movie title
+document.getElementById("form").addEventListener("submit", (event) => {
   event.preventDefault();
-  const search_movie = search.value;
+  const search_movie = document.getElementById("search").value;
 
   if (search_movie) {
     fetchMovies(search_api + search_movie);
@@ -49,9 +50,20 @@ form.addEventListener("submit", (event) => {
   }
 });
 
-next.addEventListener("next", (event) => {
-    event.preventDefault();
+// button to get to the previous page
+function prevMovies() {
+    console.log("previous button clicked");
+    if(page != 1) {
+        page -= 1;
+        console.log(page);
+        fetchMovies(api + page);
+    }
+}
+
+// button to get to the next page
+function nextMovies() {
+    console.log("next button clicked");
     page += 1;
     console.log(page);
-    fetchMovies(api);
-});
+    fetchMovies(api + page);
+}
